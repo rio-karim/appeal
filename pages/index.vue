@@ -11,7 +11,7 @@
         <div class="AppealBlog__load">
           <button
             @click="getPosts"
-            class="AppealBlog__load-button font-weight-bold pb-4"
+            class="AppealBlog__load-button font-weight-bold mb-4 ml-4"
           >
             // LOAD MORE ARTICLES
           </button>
@@ -54,6 +54,8 @@ export default {
 
 <style lang="scss">
 .AppealBlog {
+  background: url(../assets/appeal.png) 20% center no-repeat;
+  background-size: cover;
   .container {
     min-height: 100vh;
     position: relative;
@@ -65,7 +67,7 @@ export default {
     @media (max-width: 575px) {
       width: 100%;
     }
-    height: 370px;
+    height: 380px;
   }
   &__load {
     position: absolute;

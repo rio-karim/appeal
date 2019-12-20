@@ -1,5 +1,7 @@
 <template lang="html">
-  <div class="Post d-inline-flex justify-content-center align-items-center p-2">
+  <div
+    class="Post d-inline-flex justify-content-center align-items-center px-2 py-3"
+  >
     <div class="Post__container">
       <div
         :style="`background: url(${post.thumbnail}) center center no-repeat;`"
@@ -14,7 +16,7 @@
       </div>
       <div
         v-html="post.title"
-        class="Post__container-title font-weight-bold py-2"
+        class="Post__container-title font-weight-bold pt-2 pb-3"
       />
       <nuxt-link to="/" class="Post__container-link font-weight-bold py-1 px-4"
         >read more</nuxt-link
@@ -57,7 +59,7 @@ export default {
     width: 100%;
     &-img {
       width: 100%;
-      height: 220px;
+      height: 210px;
       background-size: cover !important;
     }
     &-link {
