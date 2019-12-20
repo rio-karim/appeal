@@ -1,0 +1,30 @@
+$colors-primary: (
+  black: #000000,
+  white: #FBFBFB,
+  brand: #337070
+);
+
+$colors-secondary: (
+  grey: #505050,
+  opal: #CDCDCD,
+);
+
+@function primary($key) {
+  @if map-has-key($colors-primary, $key) {
+    @return map-get($colors-primary, $key);
+  }
+  @warn "Unknown `#{$key}` in $colors-primary.";
+  @return null;
+}
+
+@function secondary($key) {
+  @if map-has-key($colors-secondary, $key) {
+    @return map-get($colors-secondary, $key);
+  }
+  @warn "Unknown `#{$key}` in $colors-secondary.";
+  @return null;
+}
+
+body, html{
+  font-family: 'Montserrat', sans-serif !important;
+}
