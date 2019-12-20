@@ -1,7 +1,8 @@
 <template>
   <div class="AppealBlog">
     <div class="container pt-5 pb-5">
-      <template v-if="posts && ready">
+      <loader v-if="!ready" />
+      <div :class="{ 'd-cloak': !ready }">
         <post
           v-for="(post, i) in posts"
           :post="post"
@@ -16,8 +17,7 @@
             // LOAD MORE ARTICLES
           </button>
         </div>
-      </template>
-      <loader v-else />
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
     this.getPosts().then(() => {
       setTimeout(() => {
         this.ready = true
-      }, 2500)
+      }, 2000)
     })
   },
   methods: mapActions('Posts', {
@@ -53,6 +53,9 @@ export default {
 </script>
 
 <style lang="scss">
+.d-cloak {
+  visibility: hidden;
+}
 .AppealBlog {
   background: url(../assets/appeal.png) 20% center no-repeat;
   background-size: cover;
