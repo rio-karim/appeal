@@ -31,11 +31,6 @@ export default {
     Post,
     Loader
   },
-  data() {
-    return {
-      ready: false
-    }
-  },
   computed: mapGetters('Posts', {
     posts: 'getPostsList'
   }),
