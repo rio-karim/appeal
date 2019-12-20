@@ -1,8 +1,8 @@
 <template>
   <div class="AppealBlog">
     <div class="container pt-5 pb-5">
-      <loader v-if="!ready" />
-      <div :class="{ 'd-cloak': !ready }">
+      <loader v-if="!posts" />
+      <template v-else>
         <post
           v-for="(post, i) in posts"
           :post="post"
@@ -17,7 +17,7 @@
             // LOAD MORE ARTICLES
           </button>
         </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>
@@ -40,11 +40,7 @@ export default {
     posts: 'getPostsList'
   }),
   beforeMount() {
-    this.getPosts().then(() => {
-      setTimeout(() => {
-        this.ready = true
-      }, 2000)
-    })
+    this.getPosts()
   },
   methods: mapActions('Posts', {
     getPosts: 'addPosts'
